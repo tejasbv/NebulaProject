@@ -24,11 +24,15 @@ class InputField extends StatelessWidget {
               
             ),
             SizedBox(
-              width: 40.0,
+              width: 20.0,
             ),
             Container(
+              decoration: BoxDecoration(
+                    color: Colors.blue[50],
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
+                  ),
               width: MediaQuery.of(context).size.width / 3.7,
-              color: (Colors.blue[50])!,
+              //color: (Colors.blue[50])!,
               child: TextField(
                 obscureText: label == "password"?true:false,
                 onChanged: (value) => {method(value)},
@@ -36,18 +40,25 @@ class InputField extends StatelessWidget {
                   fontSize: 20.0,
                 ),
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.0),
+                  contentPadding: EdgeInsets.all(30.0),
+                  
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                    ),
+                    //borderRadius: BorderRadius.circular(5.0),
+                  ),
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: (Colors.blue[50])!,
+                      color: Colors.transparent,
                     ),
-                    borderRadius: BorderRadius.circular(5.0),
+                    //borderRadius: BorderRadius.circular(5.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: (Colors.blue[50])!,
+                      color: Colors.transparent
                     ),
-                    borderRadius: BorderRadius.circular(5.0),
+                    //borderRadius: BorderRadius.circular(5.0),
                   ),
                   hintText: "$content",
                   fillColor: (Colors.blue[50])!,
