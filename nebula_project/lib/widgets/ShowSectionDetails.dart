@@ -7,7 +7,8 @@ import 'package:flutter/src/widgets/framework.dart';
 class ShowSectionDetails extends StatelessWidget {
   var meeting_room;
   var type;
-  ShowSectionDetails({required this.meeting_room, required this.type});
+  var sectionnum;
+  ShowSectionDetails({required this.meeting_room, required this.type, required this.sectionnum});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,16 @@ class ShowSectionDetails extends StatelessWidget {
             child: Icon(Icons.person, color: Colors.red,size: 35),
           ),
         ),
-        Text(type, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700), )
+        Text(type, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700), ),
+        Container(
+          padding: EdgeInsets.only(left: 50,right: 20),
+          child: CircleAvatar(
+            backgroundColor: Colors.transparent,
+            radius: 20,
+            child: Icon(Icons.info_outline, color: Colors.red,size: 35),
+          ),
+        ),
+        Text("section: "+sectionnum, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700), )
       ]),
     );
   }

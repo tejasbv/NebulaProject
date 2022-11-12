@@ -6,6 +6,7 @@ import 'package:nebula_project/screens/Login.dart';
 import 'package:nebula_project/screens/Register.dart';
 import 'package:nebula_project/screens/SearchResults.dart';
 import 'package:nebula_project/screens/landing_screen.dart';
+import 'package:nebula_project/widgets/proffStats.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       home: SearchResults(courseNum: "4v95", coursePrefix: "CS",),
 
-      // home:LandingScreen(),
+      // home:ProffStats(name: "Karen Mazidi"),
     );
   }
 }

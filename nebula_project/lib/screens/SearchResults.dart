@@ -178,7 +178,7 @@ class _SearchResultsState extends State<SearchResults> {
                                         Container(
                                             padding:
                                                 EdgeInsets.only(bottom: 25),
-                                            child: SectionInfo(info: val))
+                                            child: SectionInfo(info: val, coursePrefix: coursePrefix, coursenum: courseNum,))
                                       ]
                                     ],
                             ),

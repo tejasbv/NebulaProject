@@ -88,7 +88,7 @@ def sectionInfo(prefix,  number, term):
         "course_reference": "course_reference",
         "instruction_mode": "in-person",
         "internal_class_number": "internal_class_number",
-        "syllabus_uri": "syllabus_uri",
+        "syllabus_uri": "https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget",
         "section_corequisites": {
             "name": "name",
             "options": [{}, {}],
@@ -144,7 +144,7 @@ def sectionInfo(prefix,  number, term):
         "course_reference": "course_reference",
         "instruction_mode": "in-person",
         "internal_class_number": "internal_class_number",
-        "syllabus_uri": "syllabus_uri",
+        "syllabus_uri": "https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget",
         "section_corequisites": {
             "name": "name",
             "options": [{}, {}],

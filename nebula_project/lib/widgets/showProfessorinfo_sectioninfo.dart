@@ -14,6 +14,7 @@ class ProfessorinfoSection extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(25),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             padding: EdgeInsets.only(right: 20),
