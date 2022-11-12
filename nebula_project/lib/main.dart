@@ -1,6 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:nebula_project/screens/Homepage.dart';
 import 'package:nebula_project/screens/Login.dart';
 import 'package:nebula_project/screens/Register.dart';
+import 'package:nebula_project/screens/SearchResults.dart';
 import 'package:nebula_project/screens/landing_screen.dart';
 
 void main() {
@@ -19,7 +23,9 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      // home: SearchResults(courseNum: "4v95", coursePrefix: "CS",),
+
+      home:LandingScreen(),
     );
   }
 }

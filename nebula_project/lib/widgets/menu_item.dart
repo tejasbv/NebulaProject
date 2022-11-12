@@ -35,7 +35,9 @@ class _MenuItemCState extends State<MenuItemC> {
             })
             }
       },
-      onTap: () => press,
+      onTap: (() {
+        press();
+      }),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Text(

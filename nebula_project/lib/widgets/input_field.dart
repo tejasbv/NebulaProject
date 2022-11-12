@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 class InputField extends StatelessWidget {
   final String label;
   final String content;
+  final Color labelColor;
   final method;
-  InputField({required this.label, required this.content, required this.method});
+  InputField({required this.label, this.labelColor = Colors.black ,required this.content, required this.method});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class InputField extends StatelessWidget {
               child: Text(
                 "$label",
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500)
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500, color: labelColor)
               ),
               
             ),

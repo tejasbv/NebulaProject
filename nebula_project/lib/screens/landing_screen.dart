@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
-import 'package:nebula_project/widgets/app_bar_homescreen.dart';
-import 'package:nebula_project/widgets/body_homeScreen.dart';
+import 'package:nebula_project/widgets/app_bar_LandingPage.dart';
+import 'package:nebula_project/widgets/body_LandingPage.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -47,13 +47,13 @@ class _LandingScreenState extends State<LandingScreen> with TickerProviderStateM
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              CustomAppBar_HomeScreen(),
+              CustomAppBar_LandingPage(),
               Spacer(),
               // It will cover 1/3 of free spaces
 
               Container(
                   width: size.width / 2,
-                  child: Center(child: Body_homeScreen())),
+                  child: Center(child: Body_LandingPage())),
               Spacer(
                 flex: 2,
               ),

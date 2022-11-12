@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:nebula_project/screens/Login.dart';
 
 import '../constant.dart';
 
 
-class Body_homeScreen extends StatelessWidget {
+class Body_LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         Size size = MediaQuery.of(context).size;
@@ -13,12 +14,15 @@ class Body_homeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Text(
-          "Course Planner".toUpperCase(),
-          style: Theme.of(context).textTheme.headline1!.copyWith(
-                color: kTextcolor,
-                fontWeight: FontWeight.bold,
-              ),
+        Container(
+          padding: EdgeInsets.only(left: 12),
+          child: Text(
+            "Course Planner".toUpperCase(),
+            style: Theme.of(context).textTheme.headline1!.copyWith(
+                  color: kTextcolor,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
         ),
         Container(
           padding: EdgeInsets.only(top: 15, bottom: 15),
@@ -26,7 +30,7 @@ class Body_homeScreen extends StatelessWidget {
           child: Center(
             child: Text(
               textAlign: TextAlign.left,
-              "One app for veiwing past grades, professore review, and class details",
+              "One app for viewing past grades, professor review, and class details",
               style: TextStyle(
                 fontSize: 28,
                 color: kTextcolor.withOpacity(0.6),
@@ -36,6 +40,14 @@ class Body_homeScreen extends StatelessWidget {
         ),
         InkWell(
           // Now it just take the required spaces
+          onTap: () {
+            Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                Login()),
+                                      );
+          },
           child: Container(
             margin: EdgeInsets.symmetric(vertical: 20),
             padding: EdgeInsets.all(15),
