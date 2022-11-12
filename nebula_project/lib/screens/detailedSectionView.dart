@@ -7,6 +7,7 @@ import 'package:nebula_project/screens/Homepage.dart';
 import 'package:nebula_project/widgets/customButton.dart';
 import 'package:nebula_project/widgets/app_bar_Login.dart';
 import 'package:http/http.dart' as http;
+import 'package:nebula_project/widgets/proffStats.dart';
 import 'package:nebula_project/widgets/sectionInfo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,40 +15,18 @@ import '../widgets/gender.dart';
 import '../widgets/input_field.dart';
 import 'landing_screen.dart';
 
-class SearchResults extends StatefulWidget {
-  var coursePrefix;
-  var courseNum;
-  SearchResults({required this.coursePrefix, required this.courseNum});
+class DetailedSectionView extends StatefulWidget {
+  var info;
+  DetailedSectionView({required this.info});
   @override
-  State<SearchResults> createState() =>
-      _SearchResultsState(courseNum: courseNum, coursePrefix: coursePrefix);
+  State<DetailedSectionView> createState() =>
+      _DetailedSectionViewState(info: info);
 }
 
-class _SearchResultsState extends State<SearchResults> {
-  var coursePrefix;
-  var courseNum;
-  var courseInfo;
-  var sectionsinfo;
-  _SearchResultsState({required this.coursePrefix, required this.courseNum}) {
-    http
-        .get(Uri.parse("http://127.0.0.1:5000/courseInfo/prefix=" +
-            coursePrefix +
-            "/number=" +
-            courseNum))
-        .then((value) => {
-              setState(() {
-                courseInfo = json.decode(value.body) as Map<String, dynamic>;
-              })
-            });
-    http
-        .get(Uri.parse(
-            "http://127.0.0.1:5000/sections/prefix=jkgdsf/number=saddfsf/term=sdafdsf"))
-        .then((value) => {
-              setState(() {
-                sectionsinfo = (json.decode(value.body)
-                    as Map<String, dynamic>)["details"];
-              })
-            });
+class _DetailedSectionViewState extends State<DetailedSectionView> {
+  var info;
+  _DetailedSectionViewState({required this.info}) {
+    
   }
   @override
   void initState() {
@@ -96,7 +75,7 @@ class _SearchResultsState extends State<SearchResults> {
                                     child: CircleAvatar(
                                       backgroundColor: Colors.black87,
                                       backgroundImage: AssetImage(
-                                          "people-working-computer-with-hot-coffee_620585-238.jpg"),
+                                          "einstein.jpeg"),
                                       radius:
                                           MediaQuery.of(context).size.width /
                                               40,
@@ -109,9 +88,7 @@ class _SearchResultsState extends State<SearchResults> {
                                     padding:
                                         EdgeInsets.only(top: 5.0, bottom: 15.0),
                                     child: Text(
-                                      courseInfo == null
-                                          ? "loading..."
-                                          : courseInfo["title"],
+                                      info["professors"][0],
                                       style: TextStyle(
                                           fontSize: 30.0,
                                           fontWeight: FontWeight.w900,
@@ -119,33 +96,14 @@ class _SearchResultsState extends State<SearchResults> {
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
-                                  Container(
-                                    padding:
-                                        EdgeInsets.only(top: 5.0, bottom: 35.0),
-                                    child: Text(
-                                      coursePrefix + " " + courseNum,
-                                      style: TextStyle(
-                                        fontSize: 30.0,
-                                        fontWeight: FontWeight.w900,
-                                      ),
-                                    ),
-                                  ),
+                                  
                                   SizedBox(
                                     height: 5.0,
                                   ),
                                   Container(
                                     padding:
                                         EdgeInsets.only(top: 5.0, bottom: 5.0),
-                                    child: Text(
-                                      // courseInfo==null?"loading...":courseInfo["description"],
-                                      courseInfo == null
-                                          ? "loading..."
-                                          : courseInfo["description"],
-                                      style: TextStyle(
-                                        fontSize: 26.0,
-                                      ),
-                                      textAlign: TextAlign.start,
-                                    ),
+                                    child: ProffStats(name: info["professors"][0])
                                   ),
                                   SizedBox(
                                     height: 50.0,
@@ -166,24 +124,24 @@ class _SearchResultsState extends State<SearchResults> {
                             ),
                           ),
                         ),
-                        SingleChildScrollView(
-                          child: Container(
-                            padding: EdgeInsets.all(20),
-                            child: Column(
-                              children: sectionsinfo == null
-                                  ? []
-                                  : [
-                                      Container(padding: EdgeInsets.only(bottom: 50),width: MediaQuery.of(context).size.width -MediaQuery.of(context).size.width / 3-200 ,child: Text("choose a section to view more details", style: TextStyle(fontSize: 36, ),softWrap: true,textAlign: TextAlign.center,)),
-                                      for (var val in sectionsinfo) ...[
-                                        Container(
-                                            padding:
-                                                EdgeInsets.only(bottom: 25),
-                                            child: SectionInfo(info: val))
-                                      ]
-                                    ],
-                            ),
-                          ),
-                        )
+                        // SingleChildScrollView(
+                        //   child: Container(
+                        //     padding: EdgeInsets.all(20),
+                        //     child: Column(
+                        //       children: sectionsinfo == null
+                        //           ? []
+                        //           : [
+                        //               Container(padding: EdgeInsets.only(bottom: 50),width: MediaQuery.of(context).size.width -MediaQuery.of(context).size.width / 3-200 ,child: Text("choose a section to view more details", style: TextStyle(fontSize: 36, ),softWrap: true,textAlign: TextAlign.center,)),
+                        //               for (var val in sectionsinfo) ...[
+                        //                 Container(
+                        //                     padding:
+                        //                         EdgeInsets.only(bottom: 25),
+                        //                     child: SectionInfo(info: val))
+                        //               ]
+                        //             ],
+                        //     ),
+                        //   ),
+                        // )
                       ],
                     ),
                   ),

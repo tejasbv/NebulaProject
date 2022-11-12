@@ -18,7 +18,7 @@ class Body_HomePage extends StatelessWidget {
           padding: EdgeInsets.only(left: 30),
           child: Text(
           
-            "University of Texas at Dallas".toUpperCase(),
+            "The University of Texas at Dallas".toUpperCase(),
             style: Theme.of(context).textTheme.headline1!.copyWith(
                   color: kTextcolor,
                   fontWeight: FontWeight.bold,
